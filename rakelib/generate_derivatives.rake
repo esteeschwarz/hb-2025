@@ -4,8 +4,27 @@
 # create small and thumb images for image and pdf files in the 'objects' folder
 ###############################################################################
 
-require 'image_optim' unless Gem.win_platform?
+require 'image_optim'
 require 'mini_magick'
+
+#MiniMagick::Tool::Convert.new do |convert|
+       # src = "../objects/demo_002.pdf"
+        # inputfile = MiniMagick::Image.open("#{src}[0]")
+        # #inputfile = src
+#  magick = MiniMagick::Tool::Convert.new
+#        # magick.top(0)
+
+#         magick.density(300)
+#         magick << inputfile
+#         magick.resize(0.8)
+#         magick.flatten
+#         magick << "../objects/test/demo002_deb.jpg"
+#         magick.call
+#         image_optim.optimize_image!("../objects/test/demo002_deb.jpg") unless Gem.win_platform?
+
+  #convert << "#{src}[0]"
+  #convert << "objects/test/demo002_deb.jpg"
+#end
 
 def process_and_optimize_image(filename, file_type, output_filename, size, density)
   image_optim = ImageOptim.new(svgo: false) unless Gem.win_platform?
@@ -20,12 +39,14 @@ def process_and_optimize_image(filename, file_type, output_filename, size, densi
     puts "Skipping: #{filename}"
   else
     puts "Creating: #{output_filename}"
+    puts "filename deb: #{filename}"
     begin
       if file_type == :pdf
-        inputfile = "#{filename}[0]"
+       #MiniMagick::Image.open("#{filename}[0]")
+              inputfile = "#{filename}[0]"
         magick = MiniMagick::Tool::Convert.new
         magick.density(density)
-        magick << inputfile
+        magick << filename
         magick.resize(size)
         magick.flatten
         magick << output_filename
