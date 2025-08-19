@@ -4,4 +4,4 @@ description,,,true,
 creator,Creator,,,
 subject,,true
 location,,true,,,Location Depicted
-identifier,,,true,Identifier
+identifier,,,false,Identifier
