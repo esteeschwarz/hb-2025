@@ -4,5 +4,5 @@ description,,,true,
 creator,Creator,,,
 subject,,true
 location,,true,,,Location Depicted
-identifier,,,false,Identifier
-original-identifier,,,false,Registratur
+identifier,,,true,Identifier
+original-identifier,,,true,Registratur
